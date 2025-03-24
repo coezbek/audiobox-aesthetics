@@ -85,7 +85,8 @@ All axes | [checkpoint.pt](https://dl.fbaipublicfiles.com/audiobox-aesthetics/ch
 ```
 from audiobox_aesthetics.infer import initialize_predictor
 predictor = initialize_predictor()
-predictor.forward([{"path":"/path/to/a.wav"}, {"path":"/path/to/b.flac"}])
+predictor.forward([{"path": "/path/to/a.wav"}, {"path": "/path/to/b.flac"}])
+# -> [{'CE': 4.1...., 'CU': 5.9..., 'PC': 2.1..., 'PQ': 6.7...}, {'CE': 4.5,....}]
 ```
 
 2. Infer from torch tensor
@@ -93,7 +94,7 @@ predictor.forward([{"path":"/path/to/a.wav"}, {"path":"/path/to/b.flac"}])
 from audiobox_aesthetics.infer import initialize_predictor
 predictor = initialize_predictor()
 wav, sr = torchaudio.load("/path/to/a.wav")
-predictor.forward([{"path":wav, "sample_rate": sr}])
+predictor.forward([{"path": wav, "sample_rate": sr}])
 ```
 ### How to load model using HuggingFace way (for finetuning, etc)
 
